@@ -105,6 +105,11 @@ instance forall m nm desc . (SingI nm, SingI desc, Model m)
                $ one (undefined :: m -> F (Interval UTCTime) nm desc)
 
 instance forall m nm desc . (SingI nm, SingI desc, Model m)
+         => IntervalPred (m -> F UTCTime nm desc) m  where
+  interval _ = map (\p -> p {matchType = MatchInterval})
+               $ one (undefined :: m -> F (Interval UTCTime) nm desc)
+
+instance forall m nm desc . (SingI nm, SingI desc, Model m)
          => IntervalPred (m -> F (Maybe LegacyDatetime) nm desc) m where
   interval _ =
     interval (undefined :: (m -> F LegacyDatetime nm desc)) :: [Predicate m]
