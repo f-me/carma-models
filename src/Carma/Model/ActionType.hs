@@ -25,23 +25,11 @@ data ActionType = ActionType
 
 mkIdents [t|ActionType|]
  [ ("orderService", 1)
- , ("orderServiceAnalyst", 2)
  , ("tellClient", 3)
  , ("checkStatus", 4)
- , ("needPartner", 5)
  , ("checkEndOfService", 6)
  , ("closeCase", 7)
- , ("getDealerInfo", 8)
  , ("cancelService", 9)
- , ("makerApproval", 10)
- , ("tellMakerDeclined", 11)
- , ("addBill", 12)
- , ("billmanNeedInfo", 13)
- , ("headCheck", 14)
- , ("directorCheck", 15)
- , ("accountCheck", 16)
- , ("analystCheck", 17)
- , ("complaintResolution", 18)
  , ("tellMeMore", 19)
  ]
 
