@@ -24,6 +24,7 @@ mkIdents [t|ActionResult|]
  , ("serviceOrderedSMS", 2)
  , ("clientCanceledService", 4)
  , ("defer", 6)
+ , ("clientOk", 7)
  , ("serviceInProgress", 8)
  , ("serviceDone", 10)
  , ("caseClosed", 11)

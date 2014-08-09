@@ -11,8 +11,10 @@ import Data.Model.Types ((:@))
 import Data.Model.View
 
 import qualified Carma.Model.ClientRefusalReason as CRR
+import           Carma.Model.FalseCall           (FalseCall)
 import           Carma.Model.LegacyTypes
 import           Carma.Model.PaymentType         (PaymentType)
+import           Carma.Model.Satisfaction        (Satisfaction)
 import           Carma.Model.Search as S
 import           Carma.Model.ServiceStatus       (ServiceStatus)
 import           Carma.Model.ServiceType         (ServiceType)
@@ -57,7 +59,7 @@ data Service = Service
                                  "Ожидаемое время закрытия услуги"
   , times_factServiceClosure     :: F (Maybe UTCTime) "times_factServiceClosure"
                                  "Фактическое время закрытия услуги"
-  , falseCall                    :: F (Maybe (IdentT FalseStatuses)) "falseCall"
+  , falseCall                    :: F (IdentI FalseCall) "falseCall"
                                  "Ложный вызов"
   , clientCancelReason           :: F (Maybe Text) "clientCancelReason"
                                  "Причина отказа клиента"
@@ -92,9 +94,9 @@ data Service = Service
                                  "Оригинал получен"
   , urgentService                :: F (Maybe (IdentT UrgentServiceReason)) "urgentService"
                                  "Приоритетная услуга"
-  , status                       :: F (Maybe (IdentI ServiceStatus)) "status"
+  , status                       :: F (IdentI ServiceStatus) "status"
                                  "Статус услуги"
-  , clientSatisfied              :: F (Maybe (IdentT Satisfaction)) "clientSatisfied"
+  , clientSatisfied              :: F (Maybe (IdentI Satisfaction)) "clientSatisfied"
                                  "Клиент доволен"
   , warrantyCase                 :: F (Maybe Checkbox) "warrantyCase"
                                  "Гарантийный случай"
@@ -134,6 +136,7 @@ svcMod =
     ,invisible contractor_coords
     ,invisible parentId
     ,invisible assignedTo
+    , readonly status
     , setType "text" payment_partnerCost
     , setType "text" payment_calculatedCost
     , setType "text" payment_limitedCost

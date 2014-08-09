@@ -31,6 +31,7 @@ mkIdents [t|ActionType|]
  , ("closeCase", 7)
  , ("cancelService", 9)
  , ("tellMeMore", 19)
+ , ("callMeMaybe", 20)
  ]
 
 instance Model ActionType where
