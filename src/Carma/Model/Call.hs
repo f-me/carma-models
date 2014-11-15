@@ -73,12 +73,13 @@ metas =
     [ invisible callDate
     , invisible endDate
 
-    , setMeta "group-widget" "text" callerName_name
-    , setLabel "ФИО" callerName_name
-
-    , mainToo callerName_phone1
+    , setMeta "group-widget" "text" callerName_phone1
     , setLabel "Телефон" callerName_phone1
 
+    , setLabel "ФИО" callerName_name
+    , mainToo callerName_name
+
+    , widget "textarea" customerComment
     , setLabel "Комментарий" customerComment
     ]
 
@@ -90,18 +91,14 @@ data Call = Call
     :: F (Maybe UTCTime) "endDate"  "Время окончания звонка"
   , callTaker
     :: F (IdentI Usermeta) "callTaker" "Сотрудник РАМК"
-  , program
-    :: F (Maybe (IdentI Program)) "program" "Программа"
   , subprogram
     :: F (Maybe (IdentI SubProgram)) "subprogram" "Подпрограмма"
   , wazzup
     :: F (Maybe (IdentI Wazzup)) "wazzup" "Что случилось"
-  , customerComment
-    :: F (Maybe Text) "customerComment" "Комментарий"
-  , callerName_name
-    :: F (Maybe Text) "callerName_name" "ФИО"
   , callerName_phone1
     :: F (Maybe Text) "callerName_phone1" "Телефон"
+  , callerName_name
+    :: F (Maybe Text) "callerName_name" "ФИО"
   , callerName_phone2
     :: F (Maybe Text) "callerName_phone2" ""
   , callerName_phone3
@@ -124,6 +121,10 @@ data Call = Call
     :: F (Maybe Text) "callerName_ownerPhone4" ""
   , callerName_ownerEmail
     :: F (Maybe Text) "callerName_ownerEmail" "Email"
+  , program
+    :: F (Maybe (IdentI Program)) "program" "Программа"
+  , customerComment
+    :: F (Maybe Text) "customerComment" "Комментарий"
   , callerType
     :: F (Maybe (IdentT CallerTypes)) "callerType" "Кто звонит?"
   , city
