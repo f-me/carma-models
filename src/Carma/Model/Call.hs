@@ -69,7 +69,8 @@ metas =
     , invisible address
 
     , hiddenIdent caseId
-    ] ++
+    ]
+    ++
     [ invisible callDate
     , invisible endDate
 

@@ -165,3 +165,16 @@ caseMod = [
   ++ mapWidget caseAddress_address caseAddress_coords caseAddress_map
   ++ [ setMeta "cityField" (Aeson.String $ Model.fieldName city) caseAddress_map
      , setMeta "cityField" (Aeson.String $ Model.fieldName city) caseAddress_coords]
+  ++
+  [ setLabel "Дата создания" callDate
+  , setLabel "Сотрудник, создавший кейс" callTaker
+  , setLabel "Комментарий" customerComment
+
+  , setLabel "ФИО" contact_name
+  , setMeta "group-widget" "text" contact_name
+  , setLabel "Телефон" contact_phone1
+  , mainToo contact_phone1
+
+    -- TODO Switch to map picker
+  , setMeta "group-widget" "text" caseAddress_address
+  ]
