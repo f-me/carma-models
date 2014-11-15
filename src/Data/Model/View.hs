@@ -19,6 +19,7 @@ module Data.Model.View
   ,regexp
   ,transform
   ,widget
+  ,setLabel
   ,hiddenIdent
   ,setType
   ,infoText
@@ -246,6 +247,13 @@ widget
   => Text -> (m -> Field typ (FOpt name desc app))
   -> (Text, FieldView -> FieldView) :@ m
 widget nm = setMeta "widget" (Aeson.String nm)
+
+-- | Override field label.
+setLabel
+  :: SingI name
+  => Text -> (m -> Field typ (FOpt name desc app))
+  -> (Text, FieldView -> FieldView) :@ m
+setLabel l = setMeta "label" (Aeson.String l)
 
 regexp
   :: SingI name

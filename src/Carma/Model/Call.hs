@@ -69,6 +69,17 @@ metas =
     , invisible address
 
     , hiddenIdent caseId
+    ] ++
+    [ invisible callDate
+    , invisible endDate
+
+    , setMeta "group-widget" "text" callerName_name
+    , setLabel "ФИО" callerName_name
+
+    , mainToo callerName_phone1
+    , setLabel "Телефон" callerName_phone1
+
+    , setLabel "Комментарий" customerComment
     ]
 
 data Call = Call
@@ -86,11 +97,11 @@ data Call = Call
   , wazzup
     :: F (Maybe (IdentI Wazzup)) "wazzup" "Что случилось"
   , customerComment
-    :: F (Maybe Text) "customerComment" "Неисправность со слов клиента"
+    :: F (Maybe Text) "customerComment" "Комментарий"
   , callerName_name
-    :: F (Maybe Text) "callerName_name" "Звонящий"
+    :: F (Maybe Text) "callerName_name" "ФИО"
   , callerName_phone1
-    :: F (Maybe Text) "callerName_phone1" "Контактные телефоны"
+    :: F (Maybe Text) "callerName_phone1" "Телефон"
   , callerName_phone2
     :: F (Maybe Text) "callerName_phone2" ""
   , callerName_phone3
