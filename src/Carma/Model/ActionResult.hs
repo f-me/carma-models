@@ -52,6 +52,10 @@ mkIdents [t|ActionResult|]
  , ("communicated", 30)
  , ("okButNoService", 31)
  , ("supervisorClosed", 32)
+ , ("clientComplained", 1030)
+ , ("closeService", 1040)
+ , ("couldNotReach", 1050)
+ , ("falseCall", 1060)
  ]
 
 instance Model ActionResult where
