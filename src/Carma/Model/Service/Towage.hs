@@ -93,6 +93,9 @@ viewModifier'
   : setMeta "group-widget" "partner" towDealer_partner
   : invisible towDealer_partnerId
   : invisible towDealer_coords
+  : mainToo towDealer_address
+  : setLabel "Дилер" towDealer_partner
+  : setLabel "Адрес доставки" towDealer_address
   : viewModifier
 
 

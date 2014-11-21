@@ -30,8 +30,6 @@ data Service = Service
                                  "Дата создания услуги"
   , payType                      :: F (Maybe (IdentI PaymentType)) "payType"
                                  "Тип оплаты"
-  , payment_costTranscript       :: F (Maybe Text) "payment_costTranscript"
-                                 "Расшифровка стоимости"
   , payment_partnerCost          :: F (Maybe Int) "payment_partnerCost"
                                  "Стоимость со слов партнёра (число)"
   , payment_calculatedCost       :: F (Maybe Int) "payment_calculatedCost"
@@ -93,6 +91,8 @@ data Service = Service
                                  "Оригинал получен"
   , urgentService                :: F (Maybe (IdentT UrgentServiceReason)) "urgentService"
                                  "Приоритетная услуга"
+  , payment_costTranscript       :: F (Maybe Text) "payment_costTranscript"
+                                 "Расшифровка стоимости"
   , status                       :: F (IdentI ServiceStatus) "status"
                                  "Статус услуги"
   , clientSatisfied              :: F (Maybe (IdentI Satisfaction)) "clientSatisfied"
@@ -127,6 +127,11 @@ svcMod =
     , readonly status
     , clientCancelReason `completeWith` CRR.label
     ]
+    ++
+    [ setMeta "group-widget" "datetime" times_expectedServiceStart
+    , mainToo times_expectedServiceEnd
+    ]
+
 
 -- | Mods that shouldn't be appied to search view
 usualSvcMod :: [(Text, FieldView -> FieldView) :@ Service]
