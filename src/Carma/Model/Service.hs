@@ -130,6 +130,7 @@ svcMod =
     ++
     [ setMeta "group-widget" "datetime" times_expectedServiceStart
     , mainToo times_expectedServiceEnd
+    , setMeta "group-widget" "text" payment_costTranscript
     ]
 
 
