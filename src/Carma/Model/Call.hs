@@ -69,6 +69,9 @@ metas =
     , invisible address
 
     , hiddenIdent caseId
+
+    , transform "capitalize" callerName_name
+    , transform "capitalize" callerName_ownerName
     ]
     ++
     [ invisible callDate
@@ -97,15 +100,15 @@ data Call = Call
   , wazzup
     :: F (Maybe (IdentI Wazzup)) "wazzup" "Что случилось"
   , callerName_phone1
-    :: F (Maybe Text) "callerName_phone1" "Телефон"
+    :: F (Maybe Phone) "callerName_phone1" "Телефон"
   , callerName_name
     :: F (Maybe Text) "callerName_name" "ФИО"
   , callerName_phone2
-    :: F (Maybe Text) "callerName_phone2" ""
+    :: F (Maybe Phone) "callerName_phone2" ""
   , callerName_phone3
-    :: F (Maybe Text) "callerName_phone3" ""
+    :: F (Maybe Phone) "callerName_phone3" ""
   , callerName_phone4
-    :: F (Maybe Text) "callerName_phone4" ""
+    :: F (Maybe Phone) "callerName_phone4" ""
   , callerName_email
     :: F (Maybe Text) "callerName_email" "Email"
   , callerName_contactOwner
@@ -113,13 +116,13 @@ data Call = Call
   , callerName_ownerName
     :: F (Maybe Text) "callerName_ownerName" "Владелец"
   , callerName_ownerPhone1
-    :: F (Maybe Text) "callerName_ownerPhone1" "Контактные телефоны"
+    :: F (Maybe Phone) "callerName_ownerPhone1" "Контактные телефоны"
   , callerName_ownerPhone2
-    :: F (Maybe Text) "callerName_ownerPhone2" ""
+    :: F (Maybe Phone) "callerName_ownerPhone2" ""
   , callerName_ownerPhone3
-    :: F (Maybe Text) "callerName_ownerPhone3" ""
+    :: F (Maybe Phone) "callerName_ownerPhone3" ""
   , callerName_ownerPhone4
-    :: F (Maybe Text) "callerName_ownerPhone4" ""
+    :: F (Maybe Phone) "callerName_ownerPhone4" ""
   , callerName_ownerEmail
     :: F (Maybe Text) "callerName_ownerEmail" "Email"
   , program
