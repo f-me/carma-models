@@ -176,6 +176,5 @@ caseMod = [
   , mainToo contact_phone1
 
     -- TODO Switch to map picker
-  , setMeta "group-widget" "text" caseAddress_address
   , setLabel "Адрес" caseAddress_address
   ]
