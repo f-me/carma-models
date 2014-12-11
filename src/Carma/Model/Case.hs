@@ -177,4 +177,5 @@ caseMod = [
 
     -- TODO Switch to map picker
   , setLabel "Адрес" caseAddress_address
+  , invisible caseAddress_coords
   ]
