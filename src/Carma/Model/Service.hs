@@ -79,6 +79,8 @@ data Service = Service
 
   , contractor_partner           :: F (Maybe Text) "contractor_partner"
                                  "Партнёр"
+  , contractor_partnerLegacy     :: F Aeson.Value "contractor_partnerLegacy"
+                                 "Партнёр"
   , contractor_partnerId         :: F (Maybe (IdentI Partner)) "contractor_partnerId"
                                  "Партнёр"
   , contractor_address           :: F (Maybe Text) "contractor_address"
@@ -132,6 +134,7 @@ svcMod =
     ,setType "dictionary" contractor_partnerId
     ,setMeta "group-widget" "partner" contractor_partner
     ,invisible contractor_coords
+    ,invisible contractor_partnerLegacy
     ,hiddenIdent parentId
     ,readonly status
     ,clientCancelReason `completeWith` CRR.label
